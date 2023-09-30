@@ -1,0 +1,76 @@
+Name: Manea Dorin-Mihai
+Group: 313CA
+
+Homework 2 - Image Interpolation
+
+
+Description:
+
+Interpolation is a method applied when only a part of a function's values
+are known to obtain intermediate values. An image can be interpreted as a
+function f: Z ^ 2 -> R, where f(x, y) represents the brightness intensity
+of the pixel at coordinates (x, y). However, only grayscale images can be
+described by a single function. A colored RGB (Red Green Blue) image needs
+three functions, one for each color channel.
+
+In this assignment, three types of interpolation were applied: Nearest-
+Neighbor, Bicubic, and Lanczos, for resizing and rotating an image.
+
+To resize an m x n image to p x q, scaling constants s_x = q / n and
+s_y = p / m are used. The transformation matrix is T = [s_x, 0; 0, s_y],
+and its inverse is T_inv = [1 / s_x, 0; 0, 1 / s_y].
+
+To rotate an image by phi degrees, the transformation matrix is T = [cos(phi),
+-sin(phi); sin(phi), cos(phi)].
+
+->Nearest-Neighbor Interpolation
+This is the simplest interpolation method. It searches for the nearest known
+point and approximates the function's value at that point. Two 1D interpolations
+are performed for each dimension: along the x-axis to determine left or right
+and along the y-axis to determine up or down. This results in four replicated
+value zones.
+
+As the resulting image is quite pixelated, being a discontinuous function,
+more advanced interpolation methods were explored.
+
+->Bicubic Interpolation
+This extends cubic spline interpolation to two dimensions. It leads to a system
+of 16 linear equations that can be solved using learned methods. In practice,
+the required derivative values for this interpolation are unknown and are
+approximated using finite differences.
+
+Thus: f_x(x, y) = df / dx = (f(x + 1, y) - f(x - 1, y)) / 2,
+f_y(x, y) = df / dy = (f(x, y + 1) - f(x, y - 1)) / 2,
+f_xy(x, y) = d^2f / dxdxy = (f(x − 1, y − 1) + f(x + 1, y + 1) − f(x + 1, y − 1)
+                            − f(x − 1, y + 1)) / 4.
+
+
+Additional Comments:
+
+I appreciated this assignment as it was a very eloquent example of the
+applicability of numerical methods in real life. I also practiced the concept
+of interpolation and its types.
+
+The guiding comments provided were indeed helpful as they facilitated the
+implementation of mathematical concepts explained in the assignment statement.
+It's worth mentioning that the image pixels must remain integers. Another
+thing to consider was that the image's origin had to remain unchanged, and
+Octave indexing starts from 1. The solution was to use 0-based coordinates
+in transformation operations.
+
+
+References:
+
+1. https://graphicdesign.stackexchange.com/questions/26385/
+difference-between-none-linear-cubic
+2. https://software.intel.com/content/www/us/en/develop/documentation/
+ipp-dev-reference/top/volume-2-image-processing/
+ipp-ref-interpolation-in-image-geometry-transform/lanczos-interpolation.html
+3. https://en.wikipedia.org/wiki/Lanczos_algorithm
+4. https://theailearner.com/2018/12/29/image-processing-bicubic-interpolation/
+5. https://en.wikipedia.org/wiki/Lanczos_resampling
+6. https://stackoverflow.com/questions/34198553/lanczos-interpolation-in-c
+7. https://www.mathworks.com/help/visionhdl/ug/image-downsize.html
+8. http://cmbbe2018.tecnico.ulisboa.pt/pen_cmbbe2018/pdf/WEB_PAPERS/
+CMBBE2018_paper_28.pdf
+9. https://www.scss.tcd.ie/~koidlk/cs4062/ExampleKNN.pdf
