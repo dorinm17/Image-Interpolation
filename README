@@ -61,11 +61,8 @@ in transformation operations.
 
 References:
 
-1. https://graphicdesign.stackexchange.com/questions/26385/
-difference-between-none-linear-cubic
-2. https://software.intel.com/content/www/us/en/develop/documentation/
-ipp-dev-reference/top/volume-2-image-processing/
-ipp-ref-interpolation-in-image-geometry-transform/lanczos-interpolation.html
+1. https://graphicdesign.stackexchange.com/questions/26385/difference-between-none-linear-cubic
+2. https://software.intel.com/content/www/us/en/develop/documentation/ipp-dev-reference/top/volume-2-image-processing/ipp-ref-interpolation-in-image-geometry-transform/lanczos-interpolation.html
 3. https://en.wikipedia.org/wiki/Lanczos_algorithm
 4. https://theailearner.com/2018/12/29/image-processing-bicubic-interpolation/
 5. https://en.wikipedia.org/wiki/Lanczos_resampling
